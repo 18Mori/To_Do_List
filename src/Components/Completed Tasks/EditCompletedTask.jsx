@@ -50,7 +50,7 @@ function EditCompletedTask() {
     console.log(completedTasksArr);
     const newArr = completedTasksArr.filter((event) => id !== event.id);
     localStorage.setItem("completed", JSON.stringify(newArr));
-    navigate("/")
+    navigate("/Completed")
   };
 
   const handleInfoChange =(event, editedSection) => {

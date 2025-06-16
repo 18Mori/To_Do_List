@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 function CompletedHome() {
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ function CompletedHome() {
 
   const handleRedirect = (idValue, event) => {
     event.stopPropagation();
-    navigate("./Edit", { state: { id: idValue } });
+    navigate("/Edit", { state: { id: idValue } });
   };
 
   return (
@@ -69,6 +69,7 @@ function CompletedHome() {
             handleRedirect={handleRedirect}
           />
         )}
+        <Outlet />
       </div>
     </>
   );

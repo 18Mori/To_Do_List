@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState} from "react";
+import { useNavigate } from "react-router-dom";
 // Make sure to import your Firebase auth functions if they are in a separate file
 // import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 // import { auth } from "./firebase-config"; // Example path to your firebase config
@@ -7,25 +8,15 @@ const Login = ({ setUser, setUserRole }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isNewUser, setIsNewUser] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       let userCredential;
-      // This is a placeholder for your actual Firebase auth logic
-      // if (isNewUser) {
-      //   // Create account
-      //   userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      // } else {
-      //   // Sign in
-      //   userCredential = await signInWithEmailAndPassword(auth, email, password);
-      // }
-      // setUser(userCredential.user);
-      // setUserRole(role);
-
-      // Dummy logic for demonstration without Firebase connected
-      console.log("Form Submitted", { email, password, role, isNewUser });
-      alert(`Successfully submitted as ${isNewUser ? 'Sign Up' : 'Login'}`);
+      console.log("Form Submitted", { email, password, isNewUser });
+      navigate("./Completed", { state: { user: userCredential } });
+      
 
     } catch (error) {
       console.error("Error during authentication", error);
