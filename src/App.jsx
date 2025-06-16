@@ -4,6 +4,8 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import CompletedHome from "./assets/Components/Completed Tasks/CompletedHome";
 import EditCompletedTask from "./assets/Components/Completed Tasks/EditCompletedTask";
+import TodoModal from './Components/modalWindow/TodoModal';
+import Login from './Components/registration/Login';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -80,13 +82,20 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
 
+
+<TodoModal 
+        // isOpen={isModalOpen} 
+        // onClose={() => setModalOpen(false)} 
+        // onAddTask={handleAddTask} 
+      />
+          <Login/>
+
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<CompletedHome />} />
         <Route path="/Edit" element={<EditCompletedTask />} />
       </Routes>
     </BrowserRouter>
-      
     </>
   );
 }
