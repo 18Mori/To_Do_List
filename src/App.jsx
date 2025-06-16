@@ -2,10 +2,10 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import CompletedHome from "./assets/Components/Completed Tasks/CompletedHome";
-import EditCompletedTask from "./assets/Components/Completed Tasks/EditCompletedTask";
-import TodoModal from './Components/modalWindow/TodoModal';
-import Login from './Components/registration/Login';
+import CompletedHome from "./Components/Completed Tasks/CompletedHome";
+import EditCompletedTask from "./Components/Completed Tasks/EditCompletedTask";
+import TodoModal from "./Components/modalWindow/TodoModal";
+import Login from "./Components/registration/Login";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,9 +17,17 @@ function App() {
       Title: "Project Deadline",
       Description: `Finalize the React project and submit the documentation. 
       Ensure all components are optimized and bugs are resolved.`,
-      Label: ["Work", { Education: "Education", Home: "Home", Personal:"Personal", Other: "Other" }],
-      Reminder: [30, { 15: "15", 45: "45", 60:"60", 10:"10" }],
-      LabelArr: ['Personal', 'Home', 'Education', 'Work',  'Other'],
+      Label: [
+        "Work",
+        {
+          Education: "Education",
+          Home: "Home",
+          Personal: "Personal",
+          Other: "Other",
+        },
+      ],
+      Reminder: [30, { 15: "15", 45: "45", 60: "60", 10: "10" }],
+      LabelArr: ["Personal", "Home", "Education", "Work", "Other"],
       ReminderArr: [10, 15, 30, 45, 60],
     },
     {
@@ -28,9 +36,12 @@ function App() {
       Title: "Weekend Getaway",
       Description: `Plan a road trip to Naivasha with friends. 
       Pack essentials, confirm reservations, and set up the itinerary.`,
-      Label: ["Personal", { Education: "Education", Work:"Work", Home: "Home", Other: "Other" }],
-      Reminder: [10, { 15: "15", 45: "45", 60:"60", 30:"30" }],
-      LabelArr: ['Personal', 'Home', 'Education', 'Work',  'Other'],
+      Label: [
+        "Personal",
+        { Education: "Education", Work: "Work", Home: "Home", Other: "Other" },
+      ],
+      Reminder: [10, { 15: "15", 45: "45", 60: "60", 30: "30" }],
+      LabelArr: ["Personal", "Home", "Education", "Work", "Other"],
       ReminderArr: [10, 15, 30, 45, 60],
     },
     {
@@ -39,9 +50,12 @@ function App() {
       Title: "Coding Workshop",
       Description: `Prepare a presentation on advanced React patterns. 
       Include practical examples and interactive exercises for attendees.`,
-      Label: ["Education", { Personal:"Personal", Home: "Home", Other: "Other", Work:"Work"}],
-      Reminder: [60, { 15: "15", 45: "45", 30:"30", 10:"10" }],
-      LabelArr: ['Personal', 'Home', 'Education', 'Work',  'Other'],
+      Label: [
+        "Education",
+        { Personal: "Personal", Home: "Home", Other: "Other", Work: "Work" },
+      ],
+      Reminder: [60, { 15: "15", 45: "45", 30: "30", 10: "10" }],
+      LabelArr: ["Personal", "Home", "Education", "Work", "Other"],
       ReminderArr: [10, 15, 30, 45, 60],
     },
     {
@@ -50,9 +64,17 @@ function App() {
       Title: "Health Checkup",
       Description: `Schedule an annual medical checkup. 
       Ensure all necessary tests are completed for a comprehensive report.`,
-      Label: ["Other", { Personal:"Personal", Home: "Home", Education: "Education", Work:"Work"}],
-      Reminder: [45, { 15: "15", 30: "30", 60:"60", 10:"10" }],
-      LabelArr: ['Personal', 'Home', 'Education', 'Work',  'Other'],
+      Label: [
+        "Other",
+        {
+          Personal: "Personal",
+          Home: "Home",
+          Education: "Education",
+          Work: "Work",
+        },
+      ],
+      Reminder: [45, { 15: "15", 30: "30", 60: "60", 10: "10" }],
+      LabelArr: ["Personal", "Home", "Education", "Work", "Other"],
       ReminderArr: [10, 15, 30, 45, 60],
     },
   ];
@@ -82,20 +104,21 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
 
-
-<TodoModal 
+      {/* <TodoModal 
         // isOpen={isModalOpen} 
         // onClose={() => setModalOpen(false)} 
         // onAddTask={handleAddTask} 
       />
-          <Login/>
+          <Login/> */}
 
       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<CompletedHome />} />
-        <Route path="/Edit" element={<EditCompletedTask />} />
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/AddTask" element={<TodoModal />} />
+          <Route path="/Completed" element={<CompletedHome />} />
+          <Route path="/Edit" element={<EditCompletedTask />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
