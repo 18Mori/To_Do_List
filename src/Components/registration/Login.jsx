@@ -1,26 +1,18 @@
-<<<<<<< HEAD
-import { useState } from "react";
-
-
-const USERS_STORAGE_KEY = 'todo_app_users';
-=======
 import { useState} from "react";
 import { useNavigate } from "react-router-dom";
-// Make sure to import your Firebase auth functions if they are in a separate file
-// import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "./firebase-config"; // Example path to your firebase config
->>>>>>> master
+
+const USERS_STORAGE_KEY = 'todo_app_users';
 
 const Login = ({ setUser, setUserRole }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isNewUser, setIsNewUser] = useState(false);
-<<<<<<< HEAD
+
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState(""); 
-=======
+
   const navigate = useNavigate();
->>>>>>> master
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +20,7 @@ const Login = ({ setUser, setUserRole }) => {
     setMessageType("");
 
     try {
-<<<<<<< HEAD
+
       const storedUsers = JSON.parse(localStorage.getItem(USERS_STORAGE_KEY)) || [];
       if (isNewUser) {
         // Sign Up
@@ -58,12 +50,12 @@ const Login = ({ setUser, setUserRole }) => {
           setMessageType("error");
           return;
         }
-=======
+
       let userCredential;
       console.log("Form Submitted", { email, password, isNewUser });
       navigate("./Completed", { state: { user: userCredential } });
       
->>>>>>> master
+
 
         if (user.password !== password) { // password comparison 
           setMessage("Incorrect password.");
@@ -161,7 +153,6 @@ const Login = ({ setUser, setUserRole }) => {
               setMessage(""); 
               setMessageType("");
             }}
-            className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none"
           >
             {isNewUser ? "Login here" : "Sign Up now"}
           </button>
